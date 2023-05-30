@@ -1,6 +1,17 @@
 import pandas as pd
 import streamlit as st
+from pathlib import Path
 import os
+
+
+# ----------- PATH SETTINGS FOR CSS ------------
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+blogs_css_file = current_dir / "blogs.css"
+
+# ----------------- LOAD CSS -------------------
+with open(blogs_css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 
 st.header('My Blogs')
 path = os.getcwd()+'/pdfs/my_blogs.csv'
