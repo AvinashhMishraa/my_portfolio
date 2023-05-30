@@ -4,13 +4,22 @@ from pathlib import Path
 import os
 
 
+
 # ----------- PATH SETTINGS FOR CSS ------------
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-blogs_css_file = current_dir / "blogs.css"
+pages_css_file = current_dir / "pages.css"
+
+
+
+# ---- SET PAGE CONFIGURATION OF OUR WEBSITE ---- 
+st.set_page_config(page_title='Avinash Mishra | Blogs' ,layout="wide",page_icon='👨‍🔬')
+
+
 
 # ----------------- LOAD CSS -------------------
-with open(blogs_css_file) as f:
+with open(pages_css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 
 
 st.header('My Blogs')

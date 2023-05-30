@@ -98,7 +98,7 @@ st.subheader('Projects 💪')
 
 # ------ Project 1 -------------
 st.markdown('<h5><u>Automated Robot Interview System using a Prediction Model</h5>',unsafe_allow_html=True)
-st.caption("Aug 2021 - Dec 2021")
+st.caption("March 2021 - August 2021")
 with st.expander('Detailed Description'):
     with st.spinner(text="Loading details..."):
         # st.write(":violet[This project aims to build a computational framework (Digital Assessment & Virtual Hiring Platform) to take audio-visually recorded interviews of a pool of candidates and score them on various HR related behavioural attrbitues like Communication, Confidence, Stresslessness, Adaptability, Attentiveness, etc and then predict the Hireability of the interviewee(s) as to whether he/she/they are _Hireable_ / _Not Hireable_ / _Can be Considered_.]")
