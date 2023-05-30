@@ -106,7 +106,7 @@ with st.expander('Detailed Description'):
         st.markdown('<h8><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interview Video &nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp; <mark>AVI Prediction Model</mark> &nbsp;&nbsp;&nbsp;➞&nbsp;&nbsp;&nbsp; Hireability</b></h8>',unsafe_allow_html=True)
         with st.container():
             image, text = st.columns((1, 2), gap='large')
-            img_robot_interview_objective = Image.open('images/Objective.png')
+            img_robot_interview_objective = Image.open('images/objective.png')
             with image:
                 st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmJlY2I4NTkyZjZmNzA1ZTJmMDdmYWRmZmJkNDYzYTNiOTQ3YjA5ZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/JVQ0VVjpaooHcJgCaB/giphy-downsized-large.gif", width=280)
             with text:
