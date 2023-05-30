@@ -1,0 +1,149 @@
+{
+  "events": [
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "1",
+        "day":"6"
+      },
+      "media": {
+        "url": "https://csrbox.org/organization/org_logo/1511939641CL%20Educate%20Logo.png",
+        "credit": "CL Educate"
+      },
+      "text": {
+        "headline": "Data Science & Research Intern AT CL Educate",
+        "text": "After failing at multiple interviews, I finally cracked one at CL Educate , one of the prominent names in edtech space in India"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "2"
+      },
+      "media": {
+        "url": "https://openfieldx.com/wp-content/uploads/2020/07/Donut-vs-slopegraph.png",
+        "credit": "openfieldx"
+      },
+      "text": {
+        "headline": "1st Project",
+        "text": "I was lucky to directly get their sales data to do diagonostic analysis and draw insights about product performance, lead conversion of each product & overall sales trend"
+      }
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "3"
+      },
+      "media": {
+        "url": "https://drive.google.com/file/d/1OR6A6JOQcIkdSVJb6YgYwQ6Ny32JJbzL/view?usp=sharing",
+        "caption": "sample video feature extraction",
+        "credit": "CL Educate"
+      },
+      "text": {
+        "headline": "2nd Project",
+        "text": "I got a chance to do Literature Survey on Automatic Video Interviewing, collect Data, get it labelled from HR experts & then build a Prediction Model for Communication Scores & Overall Hireability from those recorded video interviews. Also secured National Runners-Up position in EvueMe-WAIN Innovation Challenge."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "7"
+      },
+      "media": {
+        "url": "https://www.hrtech.in:4000/MarketPlace_image/8285184738019091.png",
+        "credit": "EvueMe Selection Robot"
+      },
+      "text": {
+        "headline": "Remote Data Science & Research Internship at EvueMe",
+        "text": "I was fortunate to get included in their core team responsible for building a virtual hiring platform."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2020",
+        "month": "11",
+        "day": "2"
+      },
+      "media": {
+        "url": "https://image.myupchar.com/8910/original/jobs-in-myupchar-delhi-healthcare-healthtech-techjobs-content-doctor-marketing.jpg",
+        "credit": "myUpchar"
+      },
+      "text": {
+        "headline": "Joined Myupchar as a Full Stack Ruby on Rails Developer",
+        "text": "Amidst all the chaos due to Covid's 1st wave in India, I joined a healthcare based Indian startup called Myupchar as a Ruby on Rails Developer."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2021",
+        "month": "1"
+      },
+      "media": {
+        "url": "https://drive.google.com/file/d/1Y-4xykqmnN3Re0FRC0C0z8hd2ToAF5A6/view?usp=sharing",
+        "credit": "myUpchar"
+      },
+      "text": {
+        "headline": "Projects: Stock Check & Prescription Generation",
+        "text": "built various modules like checking medicine stocks across various sellers & integrate it with order handling and prescription generation for doctor consultancy service. "
+      }
+    },
+    {
+      "start_date": {
+        "year": "2021",
+        "month": "3",
+        "day": "15"
+      },
+      "media": {
+        "url": "https://drive.google.com/file/d/18n58wGOpneG7sGjL9JCOLijbzyr4VO7J/view?usp=sharing",
+        "credit": "Experience"
+      },
+      "text": {
+        "headline": "Joined Experience as a Level-2 Backend ROR Developer",
+        "text": "I managed to get into Experience, a US based company which superenhances not only visibility but overall online experience of clients worldwide in terms of their reputation, customer & employees."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2021",
+        "month": "4"
+      },
+      "media": {
+        "url": "https://drive.google.com/file/d/1UJ556dvDuVK1XulDWuxpyqf1Wy8tBHuJ/view?usp=sharing",
+        "credit": "Experience"
+      },
+      "text": {
+        "headline": "Project 1 - Hiererachy Uploader",
+        "text": "This involved building an API for bulk uploading data and populating it in a multilevel tier and user hierarchy which made the onboarding and intra-inter level movement of employees of our client companies easier."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2021",
+        "month": "6"
+      },
+      "media": {
+        "url": "https://drive.google.com/file/d/1e6_faOB9bypvOvw2HMmticks0834suVR/view?usp=sharing",
+        "credit": "Experience"
+      },
+      "text": {
+        "headline": "Project 2 - Filtering & Reporting of Reviews",
+        "text": "This involved building APIs for filtering by abusive reviews, ratings and hierarchy. I also worked on APIs for building hierarchy based reports on customer reviews."
+      }
+    },
+    {
+      "start_date": {
+        "year": "2022",
+        "month": "8"
+      },
+      "media": {
+        "url": "https://image.freepik.com/free-vector/man-working-from-home-cartoon-illustration_365595-53.jpg",
+        "credit": "https://www.freepik.com/premium-vector/man-working-from-home-cartoon-illustration_11973568.htm"
+      },
+      "text": {
+        "headline": "Preparing for Cloud Data Engineering Role",
+        "text": "After trying my luck in full time business and freelancing for around 1 and a half year, I finally decided to heavily upskill myself into Data specialised skills and make my career out of it."
+      }
+    }
+  ]
+}
+
