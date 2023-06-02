@@ -51,7 +51,6 @@ with open(pages_css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 
-
 #>>>>>>>>>>>>> Document Indexing (can be written separately inindexing.py ) <<<<<<<<<<<<<<<<<<<<<<<<<<
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -80,11 +79,10 @@ embeddings = OpenAIEmbeddings() # 1536 dimensions
 
 # ---- Storing embeddings in Pinecone vector database ----
 pinecone.init(
-    api_key=os.getenv('PINECONE_API_KEY'),
+    api_key="9400ac18-212a-47ff-b66b-552913e62853",
     environment="us-west1-gcp-free"
 )
-index_name = "langchain-assistant-chatbot"
-index = Pinecone.from_documents(docs, embeddings, index_name=index_name)
+index = Pinecone.from_documents(docs, embeddings, index_name="langchain-assistant-chatbot")
 
 # ---- The embeddings can now be accessed & searched using the similarity_search function of Pinecone class
 def get_similiar_docs(query,k=2,score=False):
@@ -112,7 +110,8 @@ human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}"
 
 prompt_template = ChatPromptTemplate.from_messages([system_msg_template, MessagesPlaceholder(variable_name="history"), human_msg_template])
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = "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"
 model_name = "gpt-3.5-turbo"
 llm = OpenAI(model_name=model_name)
 chain = load_qa_chain(llm, chain_type="stuff")
