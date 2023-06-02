@@ -16,6 +16,10 @@ from graph_builder import *     # pip install graphviz
 from streamlit_player import st_player      # pip install streamlit-player
 from pathlib import Path        # pip install pathlib
 # from streamlit_extras.colored_header import colored_header    # pip install streamlit-extras
+# from dotenv import load_dotenv    # pip install python-dotenv
+# import os     # to call dotenv---- os.getenv('OPENAI_API_KEY') ---- os.environ('OPENAI_API_KEY')
+# load_dotenv()
+
 
 
 # ----------- PATH SETTINGS FOR CSS ------------
