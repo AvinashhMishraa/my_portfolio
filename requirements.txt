@@ -10,7 +10,7 @@ streamlit_timeline
 streamlit-player
 typing-extensions
 streamlit_chat
-langchain
+langchain==0.0.188
 openai
 pinecone_client
 
