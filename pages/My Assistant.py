@@ -33,8 +33,8 @@ from streamlit_chat import message
 import openai
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 
@@ -110,7 +110,6 @@ human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}"
 
 prompt_template = ChatPromptTemplate.from_messages([system_msg_template, MessagesPlaceholder(variable_name="history"), human_msg_template])
 
-# openai.api_key = os.getenv('OPENAI_API_KEY')
 openai.api_key = "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"
 model_name = "gpt-3.5-turbo"
 llm = OpenAI(model_name=model_name)
