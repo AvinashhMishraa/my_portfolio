@@ -17,123 +17,122 @@
 #  pip install pathlib
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>  IMPORTING ALL NECESSARY MODULES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-# from langchain.document_loaders import DirectoryLoader
-# from langchain.text_splitter import RecursiveCharacterTextSplitter
-# import pinecone
-# from langchain.vectorstores import Pinecone
-# from langchain.prompts import (
-#     SystemMessagePromptTemplate,
-#     HumanMessagePromptTemplate,
-#     ChatPromptTemplate,
-#     MessagesPlaceholder
-# )
-# import streamlit as st
-# from streamlit_chat import message
-# import openai
-# from pathlib import Path
-# import os
-# # from dotenv import load_dotenv
-# # load_dotenv
-# from langchain.llms import OpenAI
-# from langchain.chains.question_answering import load_qa_chain
-
-
-# # ----------- PATH SETTINGS FOR CSS ------------
-# current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-# pages_css_file = current_dir / "pages.css"
-
-# # ---- SET PAGE CONFIGURATION OF OUR WEBSITE ---- 
-# st.set_page_config(page_title='Avinash Mishra | Chat With My Assistant' ,layout="wide",page_icon='👨‍🔬')
-
-# # ----------------- LOAD CSS -------------------
-# with open(pages_css_file) as f:
-#     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+from langchain.document_loaders import DirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import pinecone
+from langchain.vectorstores import Pinecone
+from langchain.prompts import (
+    SystemMessagePromptTemplate,
+    HumanMessagePromptTemplate,
+    ChatPromptTemplate,
+    MessagesPlaceholder
+)
+import streamlit as st
+from streamlit_chat import message
+import openai
+from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
+from langchain.llms import OpenAI
+from langchain.chains.question_answering import load_qa_chain
 
 
-# #>>>>>>>>>>>>> Document Indexing (can be written separately inindexing.py ) <<<<<<<<<<<<<<<<<<<<<<<<<<
+# ----------- PATH SETTINGS FOR CSS ------------
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+pages_css_file = current_dir / "pages.css"
 
-# current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-# directory = current_dir/"assistant_data"
+# ---- SET PAGE CONFIGURATION OF OUR WEBSITE ---- 
+st.set_page_config(page_title='Avinash Mishra | Assistant' ,layout="wide",page_icon='👨‍🔬')
 
-# # ---- Loading documents from a directory with LangChain ----
-# def load_docs(directory):
-#   loader = DirectoryLoader(directory)
-#   documents = loader.load()
-#   return documents
-
-# documents = load_docs(directory)
-
-# # ---- Splitting documents into chunks ----
-# def split_docs(documents,chunk_size=300,chunk_overlap=100):
-#   text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
-#   docs = text_splitter.split_documents(documents)
-#   return docs
-
-# docs = split_docs(documents)
-
-# # ---- Creating embeddings ----
-# from langchain.embeddings.openai import OpenAIEmbeddings
-# # embeddings = OpenAIEmbeddings("text-embedding-ada-002")  # 1536 dimensions
-# embeddings = OpenAIEmbeddings() # 1536 dimensions
-
-# # ---- Storing embeddings in Pinecone vector database ----
-# pinecone.init(
-#     api_key="9400ac18-212a-47ff-b66b-552913e62853",
-#     environment="us-west1-gcp-free"
-# )
-# index = Pinecone.from_documents(docs, embeddings, index_name="langchain-assistant-chatbot")
-
-# # ---- The embeddings can now be accessed & searched using the similarity_search function of Pinecone class
-# def get_similiar_docs(query,k=2,score=False):
-#   if score:
-#     similar_docs = index.similarity_search_with_score(query,k=k)
-#   else:
-#     similar_docs = index.similarity_search(query=query, k=k)
-#   return similar_docs
+# ----------------- LOAD CSS -------------------
+with open(pages_css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 
-# # >>>>>>>>>> BUILDING THE CHATBOT APPLICATION WITH STREAMLIT (can be written in main.py) <<<<<<<<<<<<<<<<
+#>>>>>>>>>>>>> Document Indexing (can be written separately inindexing.py ) <<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# st.subheader("Avinash is not around at the moment! I am his Chatbuddy.")
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+directory = current_dir/"assistant_data"
 
-# if 'responses' not in st.session_state:
-#     st.session_state['responses'] = ["How can I assist you?"]
+# ---- Loading documents from a directory with LangChain ----
+def load_docs(directory):
+  loader = DirectoryLoader(directory)
+  documents = loader.load()
+  return documents
 
-# if 'requests' not in st.session_state:
-#     st.session_state['requests'] = []
+documents = load_docs(directory)
 
-# system_msg_template = SystemMessagePromptTemplate.from_template(template="""Answer the question as truthfully as possible using the provided context,
-# and if the answer is not contained within the text below, say 'I don't know'""")
+# ---- Splitting documents into chunks ----
+def split_docs(documents,chunk_size=300,chunk_overlap=100):
+  text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+  docs = text_splitter.split_documents(documents)
+  return docs
 
-# human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}")
+docs = split_docs(documents)
 
-# prompt_template = ChatPromptTemplate.from_messages([system_msg_template, MessagesPlaceholder(variable_name="history"), human_msg_template])
+# ---- Creating embeddings ----
+from langchain.embeddings.openai import OpenAIEmbeddings
+# embeddings = OpenAIEmbeddings("text-embedding-ada-002")  # 1536 dimensions
+embeddings = OpenAIEmbeddings() # 1536 dimensions
 
-# openai.api_key = "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"
-# model_name = "gpt-3.5-turbo"
-# llm = OpenAI(model_name=model_name)
-# chain = load_qa_chain(llm, chain_type="stuff")
+# ---- Storing embeddings in Pinecone vector database ----
+pinecone.init(
+    api_key=os.getenv("PINECONE_API_KEY"),
+    environment=os.getenv("PINECONE_ENV")
+)
+index = Pinecone.from_documents(docs, embeddings, index_name=os.getenv("PINECONE_INDEX_NAME"))
 
-# # container for chat history
-# response_container = st.container()
-# # container for text box
-# textcontainer = st.container()
+# ---- The embeddings can now be accessed & searched using the similarity_search function of Pinecone class
+def get_similiar_docs(query,k=2,score=False):
+  if score:
+    similar_docs = index.similarity_search_with_score(query,k=k)
+  else:
+    similar_docs = index.similarity_search(query=query, k=k)
+  return similar_docs
 
-# with textcontainer:
-#     query = st.text_input("Query: ", key="input")
-#     if query:
-#         with st.spinner("typing..."):
-#             similar_docs = get_similiar_docs(query)
-#             response = chain.run(input_documents=similar_docs, question=query)
-#         st.session_state.requests.append(query)
-#         st.session_state.responses.append(response)
-# with response_container:
-#     if st.session_state['responses']:
-#         for i in range(len(st.session_state['responses'])):
-#             message(st.session_state['responses'][i],key=str(i))
-#             if i < len(st.session_state['requests']):
-#                 message(st.session_state["requests"][i], is_user=True,key=str(i)+ '_user')
+
+# >>>>>>>>>> BUILDING THE CHATBOT APPLICATION WITH STREAMLIT (can be written in main.py) <<<<<<<<<<<<<<<<
+
+st.subheader("Avinash is not around at the moment! I am his Chatbuddy.")
+
+if 'responses' not in st.session_state:
+    st.session_state['responses'] = ["How can I assist you?"]
+
+if 'requests' not in st.session_state:
+    st.session_state['requests'] = []
+
+system_msg_template = SystemMessagePromptTemplate.from_template(template="""Answer the question as truthfully as possible using the provided context,
+and if the answer is not contained within the text below, say 'I don't know'""")
+
+human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}")
+
+prompt_template = ChatPromptTemplate.from_messages([system_msg_template, MessagesPlaceholder(variable_name="history"), human_msg_template])
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+model_name = "gpt-3.5-turbo"
+llm = OpenAI(model_name=model_name)
+chain = load_qa_chain(llm, chain_type="stuff")
+
+# container for chat history
+response_container = st.container()
+# container for text box
+textcontainer = st.container()
+
+with textcontainer:
+    query = st.text_input("Query: ", key="input")
+    if query:
+        with st.spinner("typing..."):
+            similar_docs = get_similiar_docs(query)
+            response = chain.run(input_documents=similar_docs, question=query)
+        st.session_state.requests.append(query)
+        st.session_state.responses.append(response)
+with response_container:
+    if st.session_state['responses']:
+        for i in range(len(st.session_state['responses'])):
+            message(st.session_state['responses'][i],key=str(i))
+            if i < len(st.session_state['requests']):
+                message(st.session_state["requests"][i], is_user=True,key=str(i)+ '_user')
 
 
 
