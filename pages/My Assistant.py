@@ -7,7 +7,7 @@
 #  pip install stramlit as st
 #  pip install streamlit-chat
 #  pip install langchain
-#  pip install pinecone-client or (pip3 install pinecone-client) or (pip3 install "pinecone-client[grpc]")
+#  pip install pinecone-client or pip3 install pinecone-client or pip3 install "pinecone-client[grpc]"
 #  pip install unstructured
 #  pip install unstructured[local-inference]
 #  pip install tabulate
